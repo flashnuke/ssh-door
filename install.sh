@@ -74,7 +74,9 @@ else
 fi
 # ==================================== install dependencies
 echo "[*] installing required packages using ${PKG_MANAGER}..."
+echo "[>] $PKG_MANAGER update -y &> /dev/null"
 $PKG_MANAGER update -y &> /dev/null || true
+echo "[>] $PKG_MANAGER install -y $GCC_PKG $PAM_PKG $ADDITIONAL_FLAGS &>/dev/null"
 $PKG_MANAGER install -y $GCC_PKG $PAM_PKG $ADDITIONAL_FLAGS &>/dev/null || true
 # ==================================== verify gcc is installed
 if ! command -v gcc &>/dev/null; then
