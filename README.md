@@ -26,7 +26,7 @@ sudo systemctl restart sshd # or 'sudo service sshd restart' for non-systemd
 Once the script finishes and sshd service is restarted, simply log into the target machine using `ssh <user>@<ip>` and enter the predefined password.
 
 ### Usage Example
-<img width="415" alt="image" src="https://github.com/user-attachments/assets/e8ef099a-45d7-4351-a784-12cc5a801562" />
+<img width="395" alt="image" src="https://github.com/user-attachments/assets/179709d0-b1e2-4ee2-9199-fd27143caa66" />
 
 ### Notes
 * Avoids direct modification of system PAM files (`/lib/security/pam_unix.so` remains untouched)
