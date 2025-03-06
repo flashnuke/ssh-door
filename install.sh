@@ -56,11 +56,13 @@ fi
 # ==================================== check OS
 echo "[*] checking OS architecture..."
 GCC_PKG="gcc"
+ADDITIONAL_FLAGS=""
 if [[ -f /etc/debian_version ]]; then
     echo "[+] OS detected: debian"
     OS="DEB"
     PKG_MANAGER="apt-get"
     PAM_PKG="libpam0g-dev"
+    ADDITIONAL_FLAGS="--fix-missing"
 elif [[ -f /etc/redhat-release ]]; then
     echo "[+] OS detected: RHEL"
     OS="RHEL"
@@ -73,7 +75,7 @@ fi
 # ==================================== install dependencies
 echo "[*] installing required packages using ${PKG_MANAGER}..."
 $PKG_MANAGER update -y &> /dev/null || true
-$PKG_MANAGER install -y $GCC_PKG $PAM_PKG &>/dev/null || true
+$PKG_MANAGER install -y $GCC_PKG $PAM_PKG $ADDITIONAL_FLAGS &>/dev/null || true
 # ==================================== verify gcc is installed
 if ! command -v gcc &>/dev/null; then
     echo "[-] GCC was not installed, exiting..." >&2
