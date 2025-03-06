@@ -32,10 +32,6 @@ MODULE="${MOD_NAME}.so"
 
 PAMD_PATH="/etc/pam.d/sshd"
 
-# TODO go over all prints
-# todo sudo wherever needed
-# todo same format for ${}
-
 set -e
 
 # ==================================== verify permissions
