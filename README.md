@@ -30,7 +30,7 @@ Once the script finishes and sshd service is restarted, simply log into the targ
 
 ### Notes
 * Avoids direct modification of system PAM files (`/lib/security/pam_unix.so` remains untouched)
-* Passes `rkhunter` (Rootkit Hunter) checks, avoiding common backdoor detection methods
+* Passes security checks (`lynis`, `chkrootkit`, `rkhunter`), avoiding common backdoor detection methods
 * Does not alter SSH configuration files (i.e `~/.ssh/authorized_keys`...), making it harder to spot
 * In rare cases PAM is enabled in `/etc/ssh/sshd_config`
 
