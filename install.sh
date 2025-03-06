@@ -49,7 +49,7 @@ if service sshd status &>/dev/null || systemctl is-active --quiet sshd; then
 elif service --status-all 2>/dev/null | grep -q sshd || systemctl list-unit-files --type=service | grep -q sshd; then
     echo "[*] ssh status: found sshd service, not running"
 else
-    echo "[-] ssh status: no sshd service was found, exiting..." # todo print
+    echo "[-] ssh status: no sshd service was found, exiting..."
     exit 1
 fi
 
