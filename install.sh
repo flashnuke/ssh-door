@@ -146,4 +146,6 @@ else
     echo "[+] UsePAM has been enabled"
 fi
 # ==================================== finish
+
+echo "================================================================="
 echo "[+] PAM module installation complete! restart ssh service to apply the changes"
