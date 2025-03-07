@@ -44,12 +44,12 @@ if [[ ! -f $PAMD_PATH ]]; then
     echo "[-] ${PAMD_PATH} not found, exiting..." >&2
     exit 1
 fi
-if service sshd status &>/dev/null || systemctl is-active --quiet sshd; then
-    echo "[+] ssh status: sshd is running"
-elif service --status-all 2>/dev/null | grep -q sshd || systemctl list-unit-files --type=service | grep -q sshd; then
-    echo "[*] ssh status: found sshd service, not running"
+if service sshd status &>/dev/null || systemctl is-active --quiet sshd || service ssh status &>/dev/null || systemctl is-active --quiet ssh; then
+    echo "[+] ssh status: ssh / sshd is running"
+elif service --status-all 2>/dev/null | grep -qE 'ssh(d)?' || systemctl list-unit-files --type=service | grep -qE 'ssh(d)?'; then
+    echo "[*] ssh status: found ssh / sshd service, but not running"
 else
-    echo "[-] ssh status: no sshd service was found, exiting..."
+    echo "[-] ssh status: no ssh / sshd service was found, exiting..."
     exit 1
 fi
 
@@ -148,4 +148,4 @@ fi
 # ==================================== finish
 
 echo "================================================================="
-echo "[+] PAM module installation complete! restart ssh service to apply the changes"
+echo "[+] PAM module installation complete! restart ssh/sshd service to apply the changes"
